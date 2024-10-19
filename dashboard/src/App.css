@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +13,7 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #3939d9f2;
+  /*background: #3939d9f2;*/
 }
 .container {
   padding: 0 100px;
@@ -19,7 +25,7 @@ body {
 }
 .page {
   margin-left: 120px;
-  background: #e5e5e5;
+  /* background: #e5e5e5; */
   padding: 40px;
   height: 100vh;
   border-top-left-radius: 50px;
@@ -43,14 +49,15 @@ body {
 }
 .form-title{
   font-size: 1.75rem;
-  color: #111;
+  color: #ff008d;
+  font-weight: 600;
   margin-bottom: 30px;
 }
 .form-component {
   padding-top: 40px;
   padding-bottom: 60px;
   min-height: 100vh;
-  background: #e5e5e5;
+  /*background: #e5e5e5;*/
 
   display: flex;
   justify-content: center;
@@ -195,6 +202,8 @@ body {
 }
 .dashboard .banner:first-child .firstBox .content p {
   font-size: 16px;
+  color:  #1a1aff;
+  font-weight: 500;
 }
 .dashboard .banner:first-child .secondBox {
   background: #3939d9f2;
@@ -202,7 +211,7 @@ body {
 }
 .dashboard .banner:first-child .thirdBox {
   color: #ff008d;
-  background: #fff;
+  background: #3939d9f2;
 }
 .dashboard .banner:first-child .secondBox,
 .dashboard .banner:first-child .thirdBox {
@@ -227,7 +236,7 @@ body {
 }
 .dashboard .banner:last-child {
   height: 65vh;
-  background: #fff;
+  background: #b5b5ff;;
   border-radius: 20px;
   padding: 40px;
 }
@@ -265,12 +274,21 @@ body {
 }
 .dashboard .banner table .value-pending {
   color: #eab308;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: lightgoldenrodyellow;
 }
 .dashboard .banner table .value-accepted {
   color: #16a34a;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #ccffcc
 }
 .dashboard .banner table .value-rejected {
   color: #dc2626;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #ffd6cc
 }
 .dashboard .banner table thead {
   text-align: justify;
@@ -342,7 +360,8 @@ body {
 .sidebar {
   position: fixed;
   width: 120px;
-  background: transparent;
+  background: #3939d9f2;
+  /* background: transparent; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -416,7 +435,8 @@ body {
 }
 
 .doctors h1 {
-  color: #3939d9f2;
+  color: #ff008d;
+  font-weight: 600;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
@@ -426,7 +446,7 @@ body {
   grid-gap: 20px;
 }
 .doctors .banner .card {
-  background: #fff;
+  background: #b5b5ff;
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -441,7 +461,7 @@ body {
 }
 .doctors .banner .card h4 {
   font-size: 24px;
-  color: #333;
+  color: #1a1aff;
   margin-bottom: 20px;
 }
 .doctors .banner .card div {
@@ -453,9 +473,11 @@ body {
 }
 .doctors .banner .card div p {
   font-weight: 700;
+  color: #1a1aff;
 }
 .doctors .banner .card div p span {
   font-weight: 500;
+  color: #1a1aff;
 }
 
 @media (max-width: 350px) {
@@ -467,7 +489,8 @@ body {
 }
 
 .messages h1 {
-  color: #3939d9f2;
+  color: #ff008d;
+  font-weight: 600;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
@@ -477,7 +500,8 @@ body {
   gap: 20px;
 }
 .messages .banner .card {
-  background: #fff;
+  background: #b5b5ff;
+  color: #1a1aff;
   border-radius: 12px;
   padding: 20px;
 }

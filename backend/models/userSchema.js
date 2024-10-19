@@ -27,11 +27,11 @@ const userSchema = new mongoose.Schema({
         maxLength: [10, "Phone number must contain exactly 10 digits"],
         validate: [validator.isMobilePhone, "Please enter a valid phone number!"],
     },
-    nic: {
+    aadhaar: {
         type: String,
         required: [true, "Please enter your message"],
-        minLength: [13, "NIC must contain exactly 13 digits"],
-        maxLength: [13, "NIC must contain exactly 13 digits"],
+        minLength: [12, "Aadhaar Number must contain exactly 13 digits"],
+        maxLength: [12, "Aadhaar Number exactly 13 digits"],
     },
     dob: {
         type: Date,

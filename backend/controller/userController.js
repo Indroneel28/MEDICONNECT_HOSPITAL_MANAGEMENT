@@ -7,10 +7,10 @@ import cloudinary from "cloudinary";
 //Register new user
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     //Get data from frontend
-    const { firstName, lastName, email, phone, password, gender, nic, dob, role } = req.body;
+    const { firstName, lastName, email, phone, password, gender, aadhaar, dob, role } = req.body;
 
     //Check whether any field is empty
-    if (!firstName || !lastName || !email || !phone || !password || !gender || !nic || !dob || !role) {
+    if (!firstName || !lastName || !email || !phone || !password || !gender || !aadhaar || !dob || !role) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
 
@@ -23,7 +23,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     }
 
     //Create new user
-    user = await User.create({ firstName, lastName, email, phone, password, gender, nic, dob, role });
+    user = await User.create({ firstName, lastName, email, phone, password, gender, aadhaar, dob, role });
 
     //Generate token
     generateToken(user, "User registered!", 200, res);
@@ -82,10 +82,10 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 //Add new admin
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
     //Get data from frontend
-    const { firstName, lastName, email, phone, password, gender, nic, dob } = req.body;
+    const { firstName, lastName, email, phone, password, gender, aadhaar, dob } = req.body;
 
     //Check whether any field is empty
-    if (!firstName || !lastName || !email || !phone || !password || !gender || !nic || !dob) {
+    if (!firstName || !lastName || !email || !phone || !password || !gender || !aadhaar || !dob) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
 
@@ -96,7 +96,7 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(`${isRegistered.role} with this email already exists!`, 400));
     }
 
-    const admin = await User.create({ firstName, lastName, email, phone, password, gender, nic, dob, role: "Admin" });
+    const admin = await User.create({ firstName, lastName, email, phone, password, gender, aadhaar, dob, role: "Admin" });
 
     res.status(200).json({
         success: true,
@@ -164,9 +164,9 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("File format not supported!", 400));
     }
 
-    const { firstName, lastName, email, phone, password, gender, nic, dob, doctorDepartment } = req.body;
+    const { firstName, lastName, email, phone, password, gender, aadhaar, dob, doctorDepartment } = req.body;
 
-    if (!firstName || !lastName || !email || !phone || !password || !gender || !nic || !dob || !doctorDepartment) {
+    if (!firstName || !lastName || !email || !phone || !password || !gender || !aadhaar || !dob || !doctorDepartment) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
 
@@ -185,7 +185,7 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
     }
 
     const doctor = await User.create({
-        firstName, lastName, email, phone, password, gender, nic, dob, role: "Doctor", doctorDepartment,
+        firstName, lastName, email, phone, password, gender, aadhaar, dob, role: "Doctor", doctorDepartment,
         docAvatar: {
             public_id: cloudinaryResponse.public_id,
             url: cloudinaryResponse.secure_url,

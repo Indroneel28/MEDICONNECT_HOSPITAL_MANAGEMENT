@@ -63,11 +63,8 @@ const Dashboard = () => {
                     `${admin.firstName} ${admin.lastName}`}{" "}
                 </h5>
               </div>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Facilis, nam molestias. Eaque molestiae ipsam commodi neque.
-                Assumenda repellendus necessitatibus itaque.
-              </p>
+              <p>Welcome to your dashboard!</p>
+              <p>Here, you can manage all your appointments, check patient visit statuses, and stay updated with the latest information from the healthcare team.</p>
             </div>
           </div>
           <div className="secondBox">
