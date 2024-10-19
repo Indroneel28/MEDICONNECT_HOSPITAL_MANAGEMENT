@@ -6,10 +6,10 @@ import { User } from "../models/userSchema.js";
 
 //Create new appointment
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
-    const { firstName, lastName, email, phone, nic, dob, gender, appointment_date, department, doctor_firstName, doctor_lastName, hasVisited, address } = req.body;
+    const { firstName, lastName, email, phone, aadhaar, dob, gender, appointment_date, department, doctor_firstName, doctor_lastName, hasVisited, address } = req.body;
 
     //Check whether any field is empty
-    if (!firstName || !lastName || !email || !phone || !nic || !dob || !gender || !appointment_date || !department || !doctor_firstName || !doctor_lastName || !address) {
+    if (!firstName || !lastName || !email || !phone || !aadhaar || !dob || !gender || !appointment_date || !department || !doctor_firstName || !doctor_lastName || !address) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
 
@@ -37,7 +37,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
         lastName,
         email,
         phone,
-        nic,
+        aadhaar,
         dob,
         gender,
         appointment_date,
