@@ -7,21 +7,26 @@ const Hero = ({ title, imageUrl }) => {
         <div className="banner">
           <h1>{title}</h1>
           <p>
-          Welcome to MediConnect, the future of healthcare at your fingertips! </p>
-      <p>
-          MediConnect is a cutting-edge app designed to revolutionize how you access hospital services. 
-          Whether you're facing an emergency, need a routine check-up, or seeking the best treatment options, we've got you covered. 
-          With MediConnect, booking hospital beds, finding top doctors, and exploring nearby treatments has never been easier or faster.</p>
-          <p>Our app connects you directly to hospitals in real-time, allowing you to check bed availability, compare treatments, and book appointments all from the comfort of your home. 
-          No more rushing from one hospital to another; MediConnect ensures you get the care you need, when and where you need it, effortlessly.
-          MediConnect is more than just an app it's your personal gateway to accessible, quality healthcare. 
-          Experience peace of mind knowing that the best medical facilities are just a tap away.
+            Welcome to MediConnect, the future of healthcare at your fingertips!{" "}
+          </p>
+          <p>
+            Our facility offers comprehensive medical services, from routine
+            check-ups to emergency care, all under one roof. With real-time
+            systems in place, you can easily access top doctors, advanced
+            treatments, and hospital bed availability, providing you with a
+            hassle-free experience.
+          </p>
+          <p>
+            Whether you’re seeking immediate attention or planning a regular
+            visit, MediConnect Hospital allows you to book appointments, check
+            availability, and explore the best treatment options quickly and
+            effortlessly. We're committed to delivering quality care, ensuring
+            you receive the right attention, exactly when you need it.
           </p>
         </div>
         <div className="banner">
           <img src={imageUrl} alt="hero" className="animated-image" />
           <span>
-            
             <img src="/Vector.png" alt="vector" />
           </span>
         </div>
