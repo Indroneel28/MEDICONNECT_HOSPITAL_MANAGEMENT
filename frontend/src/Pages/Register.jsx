@@ -11,7 +11,7 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [nic, setNic] = useState("");
+  const [aadhaar, setAadhaar] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
@@ -21,14 +21,16 @@ const Register = () => {
   const handleRegistration = async (e) => {
     e.preventDefault();
     try {
+      console.log(firstName, lastName, email, phone, aadhaar, dob, gender, password);
       await axios
         .post(
           "http://localhost:4000/api/v1/user/patient/register",
-          { firstName, lastName, email, phone, nic, dob, gender, password },
+          { firstName, lastName, email, phone, aadhaar, dob, gender, password, role:"Patient" },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
           }
+          
         )
         .then((res) => {
           toast.success(res.data.message);
@@ -38,7 +40,7 @@ const Register = () => {
           setLastName("");
           setEmail("");
           setPhone("");
-          setNic("");
+          setAadhaar("");
           setDob("");
           setGender("");
           setPassword("");
@@ -55,8 +57,7 @@ const Register = () => {
   return (
     <>
       <div className="container form-component register-form">
-        <h2>Sign Up</h2>
-        <p>Please Sign Up To Continue</p>
+        <h2 style={{ color: "#FF0000" }}>Sign Up</h2>
         <p>
         Welcome to MediConnect! As a first-time user, you're just a step away from accessing your personalized healthcare hub. 
         Register now to manage your medical records, book appointments, and receive timely health updates—all in one secure platform.
@@ -95,8 +96,8 @@ const Register = () => {
             <input
               type="number"
               placeholder="AadhaarCard Number"
-              value={nic}
-              onChange={(e) => setNic(e.target.value)}
+              value={aadhaar}
+              onChange={(e) => setAadhaar(e.target.value)}
             />
             <input
               type={"date"}
@@ -127,8 +128,8 @@ const Register = () => {
           >
             <p style={{ marginBottom: 0 }}>Already Registered?</p>
             <Link
-              to={"/signin"}
-              style={{ textDecoration: "none", color: "#271776ca" }}
+              to={"/login"}
+              style={{ textDecoration: "none", color: "#FF0000" }}
             >
               Login Now
             </Link>

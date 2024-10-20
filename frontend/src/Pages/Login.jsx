@@ -45,8 +45,7 @@ const Login = () => {
   return (
     <>
       <div className="container form-component login-form">
-        <h2>Sign In</h2>
-        <p>Please Login To Continue</p>
+        <h2 style={{ color: "#FF0000" }}>LOGIN</h2>
         <p>
         Welcome to MediConnect! Please log in to access your personalized health dashboard. </p> <br></br>
         <p>Stay connected with your medical records, appointments, and health updates in one secure place. 
@@ -81,7 +80,7 @@ const Login = () => {
             <p style={{ marginBottom: 0 }}>Not Registered?</p>
             <Link
               to={"/register"}
-              style={{ textDecoration: "none", color: "#271776ca" }}
+              style={{ textDecoration: "none", color: "#FF0000" }}
             >
               Register Now
             </Link>

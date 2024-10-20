@@ -44,8 +44,6 @@ const Footer = () => {
         <div className="content">
           <div>
             <img src="/logo.png" alt="logo" className="logo-img"/>
-          </div>
-          <div>
             <h4>Quick Links</h4>
             <ul>
               <Link to={"/"}>Home</Link>
@@ -78,6 +76,9 @@ const Footer = () => {
               <FaLocationArrow />
               <span>Bbsr Odisha,India</span>
             </div>
+            <ul>
+              <Link to={"/developers"}>Developers</Link>
+            </ul>
           </div>
         </div>
       </footer>

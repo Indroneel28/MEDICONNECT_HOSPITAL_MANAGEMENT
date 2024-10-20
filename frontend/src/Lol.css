@@ -1,24 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-@tailwind base;
-@tailwind utilities;
-@tailwind components;
-
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
-/* body {
-  background: #dddfe0; 
-  margin: 0 !important;
-  padding: 0 !important;
-} 
-*/
-
-
-
+body {
+  background: #e5e5e5;
+}
 .btn {
   padding: 7px 20px;
   border-radius: 12px;
@@ -42,9 +32,11 @@ a {
 h1 {
   font-size: 36px;
   font-weight: 900;
-  margin-top: 60px;
 }
-
+h1 {
+  font-size: 36px;
+  font-weight: 900;
+}
 h2 {
   font-size: 32px;
   font-weight: 900;
@@ -62,33 +54,6 @@ h6 {
   font-size: 24px;
   font-weight: 700;
 }
-
-
-
-/*Huge changes*/
-.hero {
-  display: flex;
-  gap: 50px;
-  margin-top: 100px;
-  padding-top: 120px;
-  padding-bottom: 120px;
-  position: relative ;
-  width: 100vw ;
-  justify-content: center; /* Center content horizontally */
-    align-items: center; /* Align content vertically in the middle */
-    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
-}
-
-.container, .content {
-  width: 100%;
-  max-width: none; /* Ensure the width is not restricted */
-  padding: 80px 125px; /* Add padding to avoid content touching screen edges */
-  box-sizing: border-box; /* Makes sure padding doesn't affect width */
-}
-.content{
-  padding: 80px 10px;
-}
-
 @media (max-width: 1186px) {
   h1 {
     font-size: 32px;
@@ -97,9 +62,6 @@ h6 {
   h2 {
     font-size: 30px;
     font-weight: 900;
-  }
-  .content{
-    padding: 0px 10px;
   }
 }
 .container {
@@ -110,30 +72,13 @@ h6 {
     padding: 0 20px;
   }
 }
-
-#root, body, html {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+.hero {
+  display: flex;
+  gap: 50px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  position: relative;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hero .banner {
   flex: 1;
 }
@@ -144,10 +89,10 @@ h6 {
 .hero .banner h1 {
   letter-spacing: 2px;
   word-spacing: 5px;
-  font-size: 32px;
+  font-size: 40px;
 }
 .hero .banner p {
-  /* color: #111; */
+  color: #111;
   letter-spacing: 2px;
 }
 .hero .banner span {
@@ -170,7 +115,6 @@ h6 {
 }
 .animated-image {
   animation: moveUpDown 1s infinite alternate ease-in-out;
-  height: 500px;
 }
 
 @keyframes moveUpDown {
@@ -201,34 +145,7 @@ h6 {
   }
   @media (max-width: 700px) {
     .hero {
-      flex-direction: column;
-      align-items: center;
       padding-bottom: 40px;
-    }
-  
-    .hero .banner {
-      padding: 10px;
-      text-align: left; /* Keep text left-aligned on mobile as well */
-    }
-  
-    .hero .banner h1 {
-      font-size: 1.5rem;
-      line-height: 1.2;
-      overflow-wrap: break-word;
-      text-align: left; /* Ensure header text is left-aligned */
-    }
-  
-    .hero .banner p {
-      font-size: 1rem;
-      line-height: 1.4;
-      overflow-wrap: break-word;
-      text-align: left; /* Ensure paragraph text is left-aligned */
-    }
-  
-    .hero .banner img {
-      width: 100%;
-      max-width: 300px;
-      margin-top: 20px;
     }
   }
 }
@@ -237,18 +154,18 @@ h6 {
   padding-bottom: 60px;
 }
 .form-component h2 {
-  /* color: gray; */
+  color: gray;
   letter-spacing: 4px;
   margin-bottom: 30px;
 }
 .form-component h4 {
-  /* color: gray; */
+  color: gray;
   font-weight: 700;
   margin-bottom: 20px;
 }
 .form-component p {
   max-width: 750px;
-  /* color: gray; */
+  color: gray;
   margin-bottom: 20px;
 }
 .form-component form {
@@ -267,7 +184,7 @@ h6 {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  /* border: 1px solid gray; */
+  border: 1px solid gray;
 }
 .form-component button {
   padding: 10px 35px;
@@ -276,7 +193,7 @@ h6 {
   width: fit-content;
   border: none;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 30px;
   background: linear-gradient(140deg, #9083d5, #271776ca);
 }
@@ -304,12 +221,12 @@ h6 {
   max-width: 1200px;
   margin: 100px auto 20px auto;
 }
-/* .login-form h2 {
+.login-form h2 {
   color: #000;
 }
 .register-form h2 {
   color: #000;
-} */
+}
 @media (max-width: 1110px) {
   .appointment-form form div:nth-child(4) {
     flex-direction: column;
@@ -396,18 +313,14 @@ footer hr {
 }
 footer .content {
   display: flex;
-  gap: 5px;
+  gap: 20px;
 }
 footer .content div {
-  flex: 0.75;
-  width: 300px;
-}
-/* footer .content div:nth-child(0) {
-  flex: 0.5;
+  flex: 1;
 }
 footer .content div:nth-child(3) {
-  flex: 0.9;
-} */
+  flex: 2;
+}
 footer .content div h4 {
   font-weight: 700;
   margin-bottom: 20px;
@@ -418,7 +331,7 @@ footer .content div ul {
   gap: 10px;
 }
 footer .content div ul a {
-  /* color: gray; */
+  color: gray;
   text-decoration: none;
 }
 footer .content div ul a:hover {
@@ -426,7 +339,7 @@ footer .content div ul a:hover {
   transition: 0.3s;
 }
 footer .content div ul li span {
-  color: rgb(65, 70, 74);
+  color: gray;
 }
 footer .content div ul li span:first-child {
   width: 150px;
@@ -475,7 +388,7 @@ footer .content div:last-child div svg {
   padding-bottom: 50px;
 }
 .departments h2 {
-  color: rgb(17, 18, 18);
+  color: gray;
   margin-bottom: 30px;
 }
 .card {
@@ -528,13 +441,12 @@ nav {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
   z-index: 2;
-  background-color: #d0dffc;
 }
 nav .logo {
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 nav .navLinks {
   flex: 2;
@@ -550,13 +462,13 @@ nav .navLinks .links {
 }
 nav .navLinks .links a {
   text-decoration: none;
-  /* color: #0000ff; */
-  font-size: 15px;
+  color: #222;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1.4px;
 }
 nav .navLinks .links a:hover {
-  color: #0000ff;
+  color: #000;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -566,7 +478,7 @@ nav .btn {
   background: transparent;
   border: none;
   border-radius: 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   z-index: 2;
 }
@@ -580,7 +492,7 @@ nav .hamburger {
   display: none;
 }
 nav svg {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 @media (max-width: 1520px) {
   nav {
@@ -609,7 +521,7 @@ nav svg {
     left: 0;
     height: 100%;
     width: 400px;
-    background: #dbe0fb;
+    background: #ffffffbf;
     top: 79px;
   }
   nav .showmenu {
@@ -623,13 +535,12 @@ nav svg {
     left: -100%;
     width: 400px;
     height: 100%;
-    background: #dbe0fb;
+    background: #ffffffbf;
     top: 79px;
   }
   nav .navLinks .links {
     flex-direction: column;
     text-align: center;
-    color: #0000ff;
   }
   nav .navLinks .links a {
     font-weight: 700;
@@ -639,23 +550,11 @@ nav svg {
   }
 }
 @media (max-width: 800px) {
-  nav{
-    background: #ffffffbf;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
   nav .showmenu {
     width: 96vw;
   }
 }
 @media (max-width: 650px) {
-  nav{
-    background: #ffffffbf;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
   nav .showmenu {
     margin: 0;
     width: 100%;
@@ -663,15 +562,11 @@ nav svg {
   }
 }
 @media (max-width: 555px) {
-  nav{
-    background: #ffffffbf;
-    position: fixed;
-    top: 0;
-    left: 0;
+  nav {
+    background: #fff;
   }
   nav .navLinks {
-    background: #dbe0fb;
-    position: fixed;
+    background: #fff;
     width: 100%;
   }
 }
@@ -688,13 +583,7 @@ input[type="time"]:before {
 }
 .logo-img{
   width: 150px;
-  border-radius: 20px;
 }
 footer .logo-img{
-  width: 60%;
-  border-radius: 20px;
-  margin-bottom: 40px;
+  width: 100%;
 }
-
-
-
