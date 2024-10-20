@@ -40,10 +40,14 @@ export const login = catchAsyncErrors(async (req, res, next) => {
     //Get data from frontend
     const { email, password, confirmPassword, role } = req.body;
 
+    // console.log(email, password, confirmPassword, role)
+
     //Check whether any field is empty
     if (!email || !password || !confirmPassword || !role) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
+    
+    // console.log("1");
 
     //Check whether password and confirm password match   
     if (password !== confirmPassword) {
@@ -72,7 +76,9 @@ export const login = catchAsyncErrors(async (req, res, next) => {
     //Generate token
     generateToken(user, "User registered!", 200, res);
 
-    // //Send response
+    // console.log("Hello");
+
+    //Send response
     // res.status(200).json({
     //     success: true,
     //     message: "User logged in successfully",
