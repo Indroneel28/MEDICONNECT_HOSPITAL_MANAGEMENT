@@ -11,18 +11,18 @@ const Developers = () => {
     {
       title: "MA Akankshya",
       imgSrc: "./akankshya.jpeg",
-      description: "Some quick example text to build on the card title.",
+      description: "MERN Stack Developer",
       linkedinUrl: "https://www.linkedin.com/in/m-a-akankshya-53314a263/",
     },
     {
       title: "Iswar Kumar Patra",
       imgSrc: "./iswar.jpeg",
-      description: "Some quick example text to build on the card title.",
+      description: "Cyber Security Enthusiast | MERN Stack Developer",
       linkedinUrl: "https://www.linkedin.com/in/iswar-kumar-29841825a/",
     },
     {
       title: "Ipsita Patra",
-      imgSrc: "./ipsita.jpeg",
+      imgSrc: "Full Stack Web Developer",
       description: "Some quick example text to build on the card title.",
       linkedinUrl: "https://www.linkedin.com/in/ipsita-patra-372380290/",
     },
