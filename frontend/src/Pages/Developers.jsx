@@ -22,8 +22,8 @@ const Developers = () => {
     },
     {
       title: "Ipsita Patra",
-      imgSrc: "Full Stack Web Developer",
-      description: "Some quick example text to build on the card title.",
+      imgSrc: "./ipsita.jpeg",
+      description: "Full Stack Web Developer",
       linkedinUrl: "https://www.linkedin.com/in/ipsita-patra-372380290/",
     },
   ];
@@ -35,7 +35,7 @@ const Developers = () => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="card w-full md:w-96 shadow-xl !p-4 !rounded-lg !border !border-gray-200"
+            className="card w-full md:w-96 shadow-xl !p-4 !rounded-lg !border !border-gray-200 !m-4"
           >
             <figure
               className="relative w-full h-48 md:h-64 !overflow-hidden !rounded-lg"

@@ -9,7 +9,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     const { firstName, lastName, email, phone, aadhaar, dob, gender, appointment_date, department, doctor_firstName, doctor_lastName, hasVisited, address } = req.body;
 
     //Check whether any field is empty
-    console.log(firstName, lastName, email, phone, aadhaar, dob, gender, appointment_date, department, doctor_firstName, doctor_lastName, hasVisited, address)
+    // console.log(firstName, lastName, email, phone, aadhaar, dob, gender, appointment_date, department, doctor_firstName, doctor_lastName, hasVisited, address)
 
     //ERROR HERE
     if (!firstName || !lastName || !email || !phone || !aadhaar || !dob || !gender || !appointment_date || !department || !doctor_firstName || !doctor_lastName || !address) {
