@@ -12,8 +12,6 @@ const Appointment = () => {
       <AppointmentForm/>
     </>
   );
-
-  
 };
 
 export default Appointment;

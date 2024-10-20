@@ -29,24 +29,24 @@ const Navbar = () => {
     navigateTo("/login");
   };
 
-
   //Dark and Light Mode
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "valentine");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "valentine"
+  );
 
-  const handleToggle=()=>{
-    if(theme==="valentine"){
-      setTheme("synthwave")
-    }else{
-      setTheme("valentine")
+  const handleToggle = () => {
+    if (theme === "valentine") {
+      setTheme("synthwave");
+    } else {
+      setTheme("valentine");
     }
-  }
-  
-  useEffect(()=>{
-    localStorage.setItem("theme", theme)
-    const localTheme=localStorage.getItem("theme")
-    document.querySelector("html").setAttribute("data-theme", localTheme)
-  },[theme]);
+  };
 
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
 
   return (
     <>
@@ -57,13 +57,28 @@ const Navbar = () => {
         <div className={show ? "navLinks showmenu " : "navLinks"}>
           <div className="links">
             <Link to={"/"} onClick={() => setShow(!show)}>
-            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Home</button>
+              <button
+                type="button"
+                className="!text-white !bg-gradient-to-br !from-purple-600 !to-blue-500 !hover:bg-gradient-to-bl !focus:ring-4 !focus:outline-none !focus:ring-blue-300 !dark:focus:ring-blue-800 !font-medium !rounded-lg !text-sm !px-5 !py-2.5 text-center me-2 mb-2"
+              >
+                Home
+              </button>
             </Link>
-            <Link to={"/appointment"} onClick={() => setShow(!show)} >
-            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Appointment</button>
+            <Link to={"/appointment"} onClick={() => setShow(!show)}>
+            <button
+                type="button"
+                className="!text-white !bg-gradient-to-br !from-purple-600 !to-blue-500 !hover:bg-gradient-to-bl !focus:ring-4 !focus:outline-none !focus:ring-blue-300 !dark:focus:ring-blue-800 !font-medium !rounded-lg !text-sm !px-5 !py-2.5 text-center me-2 mb-2"
+              >
+                Appointment
+              </button>
             </Link>
             <Link to={"/about"} onClick={() => setShow(!show)}>
-            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">About Us</button>
+            <button
+                type="button"
+                className="!text-white !bg-gradient-to-br !from-purple-600 !to-blue-500 !hover:bg-gradient-to-bl !focus:ring-4 !focus:outline-none !focus:ring-blue-300 !dark:focus:ring-blue-800 !font-medium !rounded-lg !text-sm !px-5 !py-2.5 text-center me-2 mb-2"
+              >
+                About Us
+              </button>
             </Link>
           </div>
 
@@ -100,9 +115,19 @@ const Navbar = () => {
           </label>
 
           {isAuthenticated ? (
-            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={handleLogout}>LOGOUT</button>
+            <button
+            type="button"
+            className="!text-white !bg-gradient-to-br !from-purple-600 !to-blue-500 !hover:bg-gradient-to-bl !focus:ring-4 !focus:outline-none !focus:ring-blue-300 !dark:focus:ring-blue-800 !font-medium !rounded-lg !text-sm !px-5 !py-2.5 text-center me-2 mb-2"
+          >
+            LOGOUT
+          </button>
           ) : (
-            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={goToLogin}>LOGIN</button>
+            <button
+                type="button"
+                className="!text-white !bg-gradient-to-br !from-purple-600 !to-blue-500 !hover:bg-gradient-to-bl !focus:ring-4 !focus:outline-none !focus:ring-blue-300 !dark:focus:ring-blue-800 !font-medium !rounded-lg !text-sm !px-5 !py-2.5 text-center me-2 mb-2"
+              >
+                LOGIN
+              </button>
           )}
         </div>
         <div className="hamburger" onClick={() => setShow(!show)}>
