@@ -15,10 +15,10 @@ const Developers = () => {
       linkedinUrl: "https://www.linkedin.com/in/m-a-akankshya-53314a263/",
     },
     {
-      title: "Iswar Kumar Patra",
-      imgSrc: "./iswar.jpeg",
-      description: "Cyber Security Enthusiast | MERN Stack Developer",
-      linkedinUrl: "https://www.linkedin.com/in/iswar-kumar-29841825a/",
+      title: "",
+      imgSrc: "",
+      description: "",
+      linkedinUrl: "",
     },
     {
       title: "Ipsita Patra",
