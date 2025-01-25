@@ -7,10 +7,10 @@ import cloudinary from "cloudinary";
 //Register new user
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     //Get data from frontend
-    const { firstName, lastName, email, phone, password, gender, aadhaar, dob, role } = req.body;
+    const { firstName, lastName, email, phone, password, confirmPassword, gender, aadhaar, dob, role } = req.body;
 
     //Check whether any field is empty
-    if (!firstName || !lastName || !email || !phone || !password || !gender || !aadhaar || !dob || !role) {
+    if (!firstName || !lastName || !email || !phone || !password || !gender || !aadhaar || !dob || !role || !confirmPassword) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
 
@@ -20,6 +20,11 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     //Check whether user is already registered
     if (user) {
         return next(new ErrorHandler("User already registered!", 400));
+    }
+
+    //Check whether password and confirm password match   
+    if (password !== confirmPassword) {
+        return next(new ErrorHandler("Password and Confirm Password do not match!", 400));
     }
 
     //Create new user
@@ -38,21 +43,21 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
 //Login
 export const login = catchAsyncErrors(async (req, res, next) => {
     //Get data from frontend
-    const { email, password, confirmPassword, role } = req.body;
+    const { email, password, role } = req.body;
 
-    // console.log(email, password, confirmPassword, role)
+    // console.log(email, password, role)
 
     //Check whether any field is empty
-    if (!email || !password || !confirmPassword || !role) {
+    if (!email || !password || !role) {
         return next(new ErrorHandler("Please enter all the fields!", 400));
     }
     
     // console.log("1");
 
     //Check whether password and confirm password match   
-    if (password !== confirmPassword) {
-        return next(new ErrorHandler("Password and Confirm Password do not match!", 400));
-    }
+    // if (password !== confirmPassword) {
+    //     return next(new ErrorHandler("Password and Confirm Password do not match!", 400));
+    // }
 
     //find user
     const user = await User.findOne({ email }).select("+password");

@@ -7,7 +7,6 @@ import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
@@ -19,7 +18,7 @@ const Login = () => {
       await axios
         .post(
           "http://localhost:4000/api/v1/user/login",
-          { email, password, confirmPassword, role: "Admin" },
+          { email, password, role: "Admin" },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -31,10 +30,20 @@ const Login = () => {
           navigateTo("/");
           setEmail("");
           setPassword("");
-          setConfirmPassword("");
         });
     } catch (error) {
-      toast.error(error.response.data.message);
+      //console.error("Login error:", error); // Log the error to check its structure
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("No response from the server. Please try again later.");
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     }
   };
 
@@ -47,7 +56,7 @@ const Login = () => {
       <section className="container form-component">
         <img src="/logo.png" alt="logo" className="logo" />
         <h1 className="form-title">WELCOME TO MEDICONNECT</h1>
-        <p>Only Admins Are Allowed To Access These Resources!</p>
+        <p>Only Admins Are allowed!</p>
         <form onSubmit={handleLogin}>
           <input
             type="text"
@@ -60,12 +69,6 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <div style={{ justifyContent: "center", alignItems: "center" }}>
             <button type="submit">Login</button>

@@ -9,7 +9,6 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigateTo = useNavigate();
 
@@ -19,7 +18,7 @@ const Login = () => {
       await axios
         .post(
           "http://localhost:4000/api/v1/user/login",
-          { email, password, confirmPassword, role: "Patient" },
+          { email, password, role: "Patient" },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -31,10 +30,20 @@ const Login = () => {
           navigateTo("/");
           setEmail("");
           setPassword("");
-          setConfirmPassword("");
         });
     } catch (error) {
-      toast.error(error.response.data.message);
+      //console.error("Login error:", error); // Log the error to check its structure
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("No response from the server. Please try again later.");
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     }
   };
 
@@ -47,9 +56,14 @@ const Login = () => {
       <div className="container form-component login-form">
         <h2 style={{ color: "#FF0000" }}>LOGIN</h2>
         <p>
-        Welcome to MediConnect! Please log in to access your personalized health dashboard. </p> <br></br>
-        <p>Stay connected with your medical records, appointments, and health updates in one secure place. 
-        Your well-being is just a login away—enter your credentials to get started.
+          Welcome to MediConnect! Please log in to access your personalized
+          health dashboard.{" "}
+        </p>{" "}
+        <br></br>
+        <p>
+          Stay connected with your medical records, appointments, and health
+          updates in one secure place. Your well-being is just a login
+          away—enter your credentials to get started.
         </p>
         <form onSubmit={handleLogin}>
           <input
@@ -64,12 +78,12 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
+          {/* <input
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          /> */}
           <div
             style={{
               gap: "10px",
